@@ -25,9 +25,9 @@ public:
     bool empty() { return data.empty(); }
     void push(string v) { 
         if (currentFront == nextAvail){ //if queue is full
-            cerr << "Queue is empty";
+            cerr << "Queue is full";
         }
-        else if (data.empty()){
+        else if (nextAvail == -1){ //queueue is empty
             data[0] = v;
             currentFront = 0;
             nextAvail = 1;
@@ -50,12 +50,14 @@ public:
         }
         
     }
-    string front() { return data[currentFront]; }
+    void front() { cout << data[currentFront] << endl; }
 };
 
 int main()
 {
     Queue myQueue;
+    string value;
+    cin >> value;
     myQueue.push("hi");
     myQueue.push("bruh");
     myQueue.front();
