@@ -25,7 +25,7 @@ public:
     bool empty() { return data.empty(); }
     void push(string v) { 
         if (currentFront == nextAvail){ //if queue is full
-            cerr << "Queue is full";
+            cerr << "Queue is full\n";
         }
         else if (nextAvail == -1){ //queueue is empty
             data[0] = v;
@@ -38,8 +38,8 @@ public:
         }
     }
     void pop(){
-        if (data.empty()){ // next == -1
-            cout << "Queue is empty";
+        if (nextAvail == -1){ // queue empty
+            cout << "Queue is empty\n";
         }
         else{
             currentFront = (currentFront + 1) % data.size();
@@ -56,11 +56,35 @@ public:
 int main()
 {
     Queue myQueue;
-    string value;
-    cin >> value;
-    myQueue.push(value);
+    myQueue.push("hi");
     myQueue.push("bruh");
-    myQueue.front();
+    myQueue.front(); //hi
+
+    myQueue.pop();
+    myQueue.front(); //bruh
+
+    myQueue.push("eh");
+    myQueue.push("foo");
+    myQueue.push("bar");
+    myQueue.front(); //bruh
+
+    myQueue.push("lol"); //full
+
+    myQueue.pop();
+    myQueue.front(); //eh
+
+    myQueue.pop();
+    myQueue.front(); //foo
+
+    myQueue.pop();
+    myQueue.front(); //bar
+
+    myQueue.pop();
+    myQueue.front(); //empty??
+
+    myQueue.pop();
+    myQueue.front(); 
+
     myQueue.pop();
     myQueue.front();
 }
