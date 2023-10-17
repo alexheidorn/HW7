@@ -21,6 +21,7 @@ public:
     Queue(){
         data.resize(4);
     }
+    void size(){ cout << "Queue size: " << data.size() << endl; }
     bool empty() { return data.empty(); }
     void push(string v) { 
         if (currentFront == nextAvail){ //if queue is full
@@ -80,6 +81,8 @@ int main()
 
     myQueue.push("lol"); //full
 
+    myQueue.size();
+
     myQueue.pop();
     myQueue.front(); //eh
 
@@ -99,7 +102,8 @@ int main()
     myQueue.front();
 
     myQueue.push("hello there");
-    myQueue.front();
+    myQueue.front(); //hello there
+    myQueue.push("lmao");
+    myQueue.size();
 }
 //need to fix push so it doubles & size & rearranges
-//need to fix pop to fully remove the elements
