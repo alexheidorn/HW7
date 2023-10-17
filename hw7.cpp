@@ -21,7 +21,6 @@ public:
     Queue(){
         data.resize(4);
     }
-    int size(){ return data.size(); }
     bool empty() { return data.empty(); }
     void push(string v) { 
         if (currentFront == nextAvail){ //if queue is full
@@ -80,7 +79,7 @@ int main()
     myQueue.front(); //bar
 
     myQueue.pop();
-    myQueue.front(); //empty??
+    myQueue.front(); //empty?? //front should NOT work
 
     myQueue.pop();
     myQueue.front(); 
