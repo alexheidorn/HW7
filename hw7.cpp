@@ -58,7 +58,7 @@ int main()
     Queue myQueue;
     string value;
     cin >> value;
-    myQueue.push("hi");
+    myQueue.push(value);
     myQueue.push("bruh");
     myQueue.front();
     myQueue.pop();
