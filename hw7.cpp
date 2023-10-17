@@ -25,6 +25,7 @@ public:
     void push(string v) { 
         if (currentFront == nextAvail){ //if queue is full
             cerr << "Queue is full\n";
+
         }
         else if (nextAvail == -1){ //queueue is empty
             data[0] = v;
@@ -41,6 +42,7 @@ public:
             cout << "Queue is empty\n";
         }
         else{
+            data[currentFront] = " ";
             currentFront = (currentFront + 1) % data.size();
             if (currentFront == nextAvail){ //if because empty
                 currentFront = 0;
@@ -49,12 +51,21 @@ public:
         }
         
     }
-    void front() { cout << data[currentFront] << endl; }
+    void front() { 
+        if (nextAvail == -1){ //if queue empty
+            cerr << "Queue is empty\n";
+        }
+        else{
+            cout << data[currentFront] << endl; 
+        }
+    }
 };
 
 int main()
 {
     Queue myQueue;
+    myQueue.front();
+
     myQueue.push("hi");
     myQueue.push("bruh");
     myQueue.front(); //hi
@@ -86,4 +97,9 @@ int main()
 
     myQueue.pop();
     myQueue.front();
+
+    myQueue.push("hello there");
+    myQueue.front();
 }
+//need to fix push so it doubles & size & rearranges
+//need to fix pop to fully remove the elements
