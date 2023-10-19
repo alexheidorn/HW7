@@ -15,8 +15,8 @@ using namespace std;
 class Queue{
 private:
     vector<string> data;
-    int currentFront = 0;
-    int nextAvail = -1;
+    int currentFront = 0; //current "front" of the queue
+    int nextAvail = -1; //next available index location for newly pushed data
 public:
     Queue(){
         data.resize(4);
