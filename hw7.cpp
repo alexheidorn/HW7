@@ -26,7 +26,7 @@ public:
     void push(string v) { 
         if (currentFront == nextAvail){ //if queue is full
             cerr << "Queue is full\n";
-
+            //add doubling process here!!!
         }
         else if (nextAvail == -1){ //queueue is empty
             data[0] = v;
@@ -92,18 +92,18 @@ int main()
     myQueue.pop();
     myQueue.front(); //bar
 
-    myQueue.pop();
-    myQueue.front(); //empty?? //front should NOT work
+    myQueue.pop(); //queue is empty
+    myQueue.front(); //queue is empty
 
-    myQueue.pop();
-    myQueue.front(); 
+    myQueue.pop(); //''
+    myQueue.front(); // ''
 
-    myQueue.pop();
-    myQueue.front();
+    myQueue.pop(); // ''
+    myQueue.front(); // '' queue empty x6
 
     myQueue.push("hello there");
     myQueue.front(); //hello there
     myQueue.push("lmao");
     myQueue.size();
 }
-//need to fix push so it doubles & size & rearranges
+//need to fix push so it doubles in size & rearranges
