@@ -1,6 +1,6 @@
 /*
 * Alex Heidorn
-* Teammates: Aidan Carlson, Anna Wolf
+* Teammates: Aidan Carlson, Anna Wolf, Toren Kalin, Samuel Draeger
 * Created: 10-17-23
 * CS2 HW7
 *  
