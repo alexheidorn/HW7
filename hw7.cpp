@@ -111,16 +111,17 @@ int main()
     myQueue.front(); //bar
     myQueue.pop();
 
-    myQueue.front(); //queue is empty
-    myQueue.pop(); //''
-    
-    myQueue.front(); // ''
+    myQueue.front(); //lol
+    myQueue.pop();
 
+    myQueue.front(); // queue empty 
     myQueue.pop(); // ''
-    myQueue.front(); // '' queue empty x6
+
+    myQueue.front(); // '' queue empty x3
 
     myQueue.push("hello there");
     myQueue.front(); //hello there
+
     myQueue.push("lmao");
     myQueue.size();
 }
