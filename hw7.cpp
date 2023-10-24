@@ -25,8 +25,23 @@ public:
     bool empty() { return data.empty(); }
     void push(string v) { 
         if (currentFront == nextAvail){ //if queue is full
-            cerr << "Queue is full\n";
+            //cerr << "Queue is full\n";
             //add doubling process here!!!
+            int oldSize = data.size();
+            vector<string> temp;
+            temp.resize(oldSize * 2);
+            for (int i = 0; i < data.size(); i++){
+                temp[i] = data[currentFront];
+                currentFront = (currentFront + 1) % data.size();
+            }
+            data = temp;
+            currentFront = 0;
+            nextAvail = oldSize;
+            
+
+            //push item normally
+            data[nextAvail] = v;
+            nextAvail = (nextAvail + 1) % data.size();
         }
         else if (nextAvail == -1){ //queueue is empty
             data[0] = v;
@@ -45,7 +60,7 @@ public:
         else{
             data[currentFront] = " ";
             currentFront = (currentFront + 1) % data.size();
-            if (currentFront == nextAvail){ //if because empty
+            if (currentFront == nextAvail){ //if becomes empty
                 currentFront = 0;
                 nextAvail = -1;
             }
@@ -69,33 +84,36 @@ int main()
 
     myQueue.push("hi");
     myQueue.push("bruh");
-    myQueue.front(); //hi
 
+    myQueue.front(); //hi
     myQueue.pop();
+
     myQueue.front(); //bruh
 
     myQueue.push("eh");
     myQueue.push("foo");
     myQueue.push("bar");
     myQueue.front(); //bruh
+    myQueue.size(); //4
 
-    myQueue.push("lol"); //full
+    myQueue.push("lol");// double
 
-    myQueue.size();
+    myQueue.size(); //8
 
     myQueue.pop();
+
     myQueue.front(); //eh
-
     myQueue.pop();
+
     myQueue.front(); //foo
-
     myQueue.pop();
+
     myQueue.front(); //bar
+    myQueue.pop();
 
-    myQueue.pop(); //queue is empty
     myQueue.front(); //queue is empty
-
     myQueue.pop(); //''
+    
     myQueue.front(); // ''
 
     myQueue.pop(); // ''
